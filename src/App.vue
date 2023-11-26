@@ -11,6 +11,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
 
       <button class="btn btn-primary m-r-5">hello</button>
+      <button class="btn btn-primary iceBtn iceBtn--add">hello</button>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -23,6 +24,8 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style lang="scss">
+@use './assets/styles/Styles.scss' as *;
+
 body {
   background: $black;
 }

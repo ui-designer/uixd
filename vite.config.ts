@@ -15,7 +15,9 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "./src/assets/styles/partials" as *;'
+        additionalData: `
+        @use "./src/assets/styles/partials" as *;       
+        `
       }
     }
   }

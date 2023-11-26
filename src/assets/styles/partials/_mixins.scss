@@ -98,3 +98,81 @@
     font-style: normal;
   }
 }
+
+// Map variable
+$icons: (
+  add: '\f0c4',
+  delete: '\f0c5',
+  edit: '\f0c6',
+  update: '\f0c7'
+);
+
+// Mixin
+@mixin icons-list($map) {
+  @each $icon-name, $icon in $map {
+    @if not map-has-key($map, $icon-name) {
+      @warn "'#{$icon-name}' is not a valid icon name";
+    } @else {
+      &--#{$icon-name}::before {
+        content: $icon;
+      }
+    }
+  }
+}
+
+// How to use it
+.iceBtn {
+  background: grey;
+  font-size: 2rem;
+  padding: 0.6rem 1.6rem;
+  border: 0;
+  line-height: normal;
+  @include icons-list($icons);
+}
+
+// CSS Output
+// .iceBtn {
+//   background-color: grey;
+// }
+// .iceBtn--add::before {
+//   content: "";
+// }
+// .iceBtn--delete::before {
+//   content: "";
+// }
+// .iceBtn--edit::before {
+//   content: "";
+// }
+// .iceBtn--update::before {
+//   content: "";
+// }
+
+$spaceamounts: (
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  75,
+  100
+); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
+//m-r-5
