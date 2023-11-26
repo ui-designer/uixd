@@ -1,0 +1,62 @@
+//Media Query ranges
+$mobileScreen: 767px !default;
+$ipadScreen: 768px !default;
+$ipadAirScreen: 820px !default;
+$ipadRotateScreen: 1024px !default;
+$laptopScreen: 1368px !default;
+$bigLaptopScreen: 1600px !default;
+$laptopScreen1280: 1280px !default;
+$laptopScreen1200: 1200px !default;
+@mixin mobileScreen {
+  @media screen and (max-width: #{$mobileScreen}) {
+    @content;
+  }
+}
+
+@mixin ipadScreen {
+  @media screen and (max-width: #{$ipadScreen}) {
+    @content;
+  }
+}
+
+@mixin ipadAirScreen {
+  @media screen and (max-width: #{$ipadAirScreen}) {
+    @content;
+  }
+}
+
+@mixin ipadRotateScreen {
+  @media screen and (max-width: #{$ipadRotateScreen}) {
+    @content;
+  }
+}
+
+@mixin laptopScreen1200 {
+  @media screen and (max-width: #{$laptopScreen1200}) {
+    @content;
+  }
+}
+
+@mixin laptopScreen1280 {
+  @media screen and (max-width: #{$laptopScreen1280}) {
+    @content;
+  }
+}
+
+@mixin laptopScreen {
+  @media screen and (max-width: #{$laptopScreen}) {
+    @content;
+  }
+}
+
+@mixin bigLaptopScreen {
+  @media screen and (max-width: #{$bigLaptopScreen}) {
+    @content;
+  }
+}
+
+@mixin minLaptopScreen1024 {
+  @media screen and (min-width: #{$ipadRotateScreen}) {
+    @content;
+  }
+}

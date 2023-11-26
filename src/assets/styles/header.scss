@@ -1,0 +1,24 @@
+@use './partials' as *;
+
+.topHeading {
+  text-align: center;
+  padding: 12px 0;
+  a {
+    color: $black;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+header {
+  border-top: 1px solid $borderColor;
+  border-bottom: 1px solid $borderColor;
+  .logo {
+    img {
+      max-width: 150px;
+      width: 100%;
+    }
+  }
+}

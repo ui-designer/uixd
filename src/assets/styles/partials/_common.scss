@@ -1,0 +1,192 @@
+@use './index' as *;
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+  width: 100%;
+  margin: auto;
+  @include laptopScreen {
+    font-size: 16px;
+  }
+  @include ipadScreen {
+    font-size: 16px;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h2 {
+  color: $headingColor;
+  font-size: 2.6rem;
+  line-height: 1.3;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: $subHeadingColor;
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.custom_wrapper {
+  max-width: 1920px;
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  .custom_page {
+    max-width: 1240px;
+    width: 100%;
+    margin: auto;
+    padding: 0 20px;
+  }
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: $borderColor;
+  font-size: 0.9rem;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: $borderColor;
+  font-size: 0.9rem;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: $borderColor;
+  font-size: 0.9rem;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: $borderColor;
+  font-size: 0.9rem;
+}
+
+input[type='email'].big-dog::-webkit-input-placeholder {
+  color: $borderColor;
+  font-size: 0.9rem;
+}
+
+.searchBox {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  input[type='text'] {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: content-box;
+    @include rounded();
+    border: 1px solid $borderColor;
+    background-color: $lightGrayColor;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 8px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    &:focus {
+      outline: 0;
+    }
+  }
+  input[type='submit'] {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto;
+    width: 30px;
+  }
+  .fa-magnifying-glass {
+    font-size: 14px;
+    color: $grayColor;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto;
+    width: 30px;
+  }
+}
+
+.common_productListing {
+  .list_item {
+    border: 1px solid $gray;
+    width: 24%;
+    margin-bottom: 2%;
+    position: relative;
+    a {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      text-transform: uppercase;
+      text-decoration: none;
+      i {
+        color: $white;
+        font-style: normal;
+        background: rgba(149, 87, 50, 0.4117647059);
+        width: 84%;
+        text-align: center;
+        padding: 24px 15px;
+      }
+    }
+  }
+}
+
+$spaceamounts: (
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  75,
+  100
+); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
